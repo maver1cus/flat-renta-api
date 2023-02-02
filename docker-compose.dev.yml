@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  db_api:
+    image: postgres:15.0-alpine
+    container_name: flat-renta-database
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
